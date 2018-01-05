@@ -16,6 +16,7 @@
     border-radius: 2%;
     padding: 3px 3px;
     background-color: gainsboro;
+    box-shadow: 5px 5px 5px 5px gray;
 }
 
 .block{

@@ -1,17 +1,32 @@
 var wrapper = document.querySelector('.wrapper');
+var button = document.querySelector('#newGrid');
 
+createGrid(16);
 
-//Initial grid size
-var n = 16;
+button.onclick = function(){
+    requestSize();
+}
 
-function getSize(){
-    var prompt = prompt("Enter new grid size (NxN)");
+function requestSize(){
+    var size = prompt("Enter the new dimensions(NxN)", "16");
+    if(size == null || size == ""){
+
+    }
+    else{
+
+        //Clears previous grid (May be memory inefficient when dealing with larger grid size)
+        while (wrapper.firstChild) {
+            wrapper.removeChild(wrapper.firstChild);
+        }
+
+        wrapper.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+        wrapper.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+        
+        createGrid(size);
+    }
 }
 
 function createGrid(n){
-
-    wrapper.style.gridTemplateColumns = "repeat(n, 1fr)";
-    wrapper.style.gridTemplateRows = "repeat(n, 1fr)"
 
     for(var i = 0; i < (n*n); i++){
 
